@@ -71,9 +71,9 @@ class InformDebtors extends Command
             }
 
             if ($dry) {
-                $mail = Mail::to('invoicing@invoyer.com');
+                $mail = Mail::to('karolis@barkauskas.net');
             } else {
-                $mail = Mail::cc('karolis@invoyer.com');
+                $mail = Mail::cc('karolis@barkauskas.net');
                 $debt = Label::formatPrice(abs($debt));
                 $message = "invoyer: \nSveiki, negavome $debt mokėjimo už Jums išrašytas sąskaitas.\nSąskaitą(as) rasite el. pašte.\nLauksime mokėjimo,\nGražios dienos!";
                 /** @var ClientContacts $contact */

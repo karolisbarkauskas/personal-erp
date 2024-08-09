@@ -672,20 +672,10 @@ class Income extends Model
 
     public function getEmailContent()
     {
-        if ($this->serviceValues->pluck('service_id')->count() == 1 &&
-            $this->serviceValues->pluck('service_id')->first() == 2) {
-            return "
-            Sveiki, <br />
-            Siunčiame sąskaitą už serverio nuomą. <br />
-            <br />
-            <br />
-            Gražios dienos!";
-        }
-
         return "
             Sveiki, <br />
-            Siunčiame sąskaitą už darbus. <br />
-            Darbų ataskaita prisegta prie šio laiško.
+            Siunčiu sąskaitą faktūrą.
+
             <br />
             <br />
             Gražios dienos!";

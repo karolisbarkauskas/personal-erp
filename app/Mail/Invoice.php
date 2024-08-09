@@ -26,9 +26,9 @@ class Invoice extends Mailable
     {
         $this->subject($email->subject);
         $this->email = $email;
-        $this->bcc('invoicing@invoyer.com');
-        $this->from('invoicing@invoyer.com', 'invoyer invoicing');
-        $this->replyTo('invoicing@invoyer.com', 'invoyer invoicing');
+        $this->bcc('karolis@barkauskas.net');
+        $this->from('karolis@barkauskas.net', 'invoyer invoicing');
+        $this->replyTo('karolis@barkauskas.net', 'invoyer invoicing');
 
         foreach (json_decode($email->receivers) as $key => $receiver) {
             if ($key === 0) {

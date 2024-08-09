@@ -50,7 +50,7 @@ class DebtorEmail extends Mailable
         }
 
         $this->from(
-            'invoicing@invoyer.com',
+            'karolis@barkauskas.net',
             'invoyer invoicing'
         );
     }

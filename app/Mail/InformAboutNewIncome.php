@@ -22,7 +22,7 @@ class InformAboutNewIncome extends Mailable
     {
         $this->income = $income;
         $this->subject("New income line added in report for {$this->income->incomeClient->name}. {$this->income->incomeClient->project}");
-        $this->to('karolis@invoyer.com');
+        $this->to('karolis@barkauskas.net');
     }
 
     /**
