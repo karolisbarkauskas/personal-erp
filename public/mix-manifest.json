@@ -1,0 +1,16 @@
+{
+    "/css/dashforge.css": "/css/dashforge.css",
+    "/css/custom.css": "/css/custom.css",
+    "/lib/axios/axios.min.js": "/lib/axios/axios.min.js",
+    "/lib/dataTables/dataTables.dataTables.min.js": "/lib/dataTables/dataTables.dataTables.min.js",
+    "/lib/dataTables/dataTables.fixedHeader.js": "/lib/dataTables/dataTables.fixedHeader.js",
+    "/lib/dataTables/dataTables.searchBuilder.min.js": "/lib/dataTables/dataTables.searchBuilder.min.js",
+    "/lib/dataTables/searchBuilder.dataTables.min.js": "/lib/dataTables/searchBuilder.dataTables.min.js",
+    "/lib/dataTables/searchBuilder.dataTables.min.css": "/lib/dataTables/searchBuilder.dataTables.min.css",
+    "/lib/dataTables/jquery.dataTables.min.css": "/lib/dataTables/jquery.dataTables.min.css",
+    "/lib/dataTables/dataTables.bootstrap4.css": "/lib/dataTables/dataTables.bootstrap4.css",
+    "/lib/dataTables/dataTables.bootstrap4.js": "/lib/dataTables/dataTables.bootstrap4.js",
+    "/lib/sweetalert2/sweetalert2.css": "/lib/sweetalert2/sweetalert2.css",
+    "/lib/sweetalert2/sweetalert2.js": "/lib/sweetalert2/sweetalert2.js",
+    "/js/income.js": "/js/income.js"
+}

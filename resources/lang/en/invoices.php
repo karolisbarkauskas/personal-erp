@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'title' => 'VAT Invoice',
+    'proforma-title' => 'Proforma VAT Invoice',
+    'credit-title' => 'CREDIT Invoice',
+    'buyer' => 'Buyer',
+    'service' => 'IT services',
+    'note' => '',
+    'code' => 'Code',
+    'vat' => 'VAT number:',
+    'date' => 'Invoice date',
+    'pay_until' => 'Pay until',
+    'description' => 'Service',
+    'quantity' => 'Quantity',
+    'price' => 'Price',
+    'discount' => 'Discount',
+    'tax' => 'VAT',
+    'sub_total' => 'Total',
+    'total_discount' => 'Discount',
+    'taxable_amount' => 'Sub total',
+    'total_taxes' => 'Total taxes',
+    'total_amount' => 'Total to pay',
+    'amount_in_words' => 'In words',
+    'tax_rate' => 'VAT Size',
+    'payment-instructions' => 'When doing a payment, please use only invoice number as payment reference. Thank you.',
+];

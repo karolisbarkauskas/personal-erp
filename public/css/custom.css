@@ -1,0 +1,8 @@
+table.dataTable tbody tr:hover, table.dataTable tbody tr:hover > .sorting_1 {
+    background-color: #eceff3
+}
+
+.select2-selection__choice {
+    color: #000000 !important;
+    padding: 4px 20px !important;
+}

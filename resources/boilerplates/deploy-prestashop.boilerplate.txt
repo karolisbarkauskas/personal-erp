@@ -1,0 +1,113 @@
+{
+   "name": "Generate deploy.php file for deployment",
+   "out": "storage/app/deploy/{{ $name }}/deploy.php",
+   "params": {
+        "themeName": "required",
+        "projectName": "required",
+        "gitLink": "required",
+        "userStaging": "required",
+        "serverStaging": "required",
+        "serverStaging": "required",
+        "pathStaging": "required",
+        "serverStaging": "required"
+   }
+}
+---
+<?php
+
+namespace Deployer;
+
+require 'recipe/common.php';
+
+define('_CURRENT_THEME_', '{{ $themeName }}');
+
+// Project name
+set('application', '{{ $projectName }}');
+
+// Project repository
+set('repository', '{{ $gitLink }}');
+
+add('recipes', ['prestashop']);
+
+// Shared files/dirs between deploys
+set('shared_files', [
+    'app/config/parameters.php',
+    'themes/' . _CURRENT_THEME_ . '/config/theme.yml',
+    'php.ini',
+    '.htaccess',
+]);
+
+set('shared_dirs', [
+    __DIR__ . '/../modules/*/mails',
+    __DIR__ . '/../modules/*/upload',
+    __DIR__ . '/../modules/*/images',
+    __DIR__ . '/../themes/*/modules/*/mails',
+    __DIR__ . '/../themes/*/modules/*/upload',
+    __DIR__ . '/../themes/*/modules/*/images',
+]);
+
+// Writable dirs by web server
+set('writable_dirs', []);
+
+// Hosts
+
+set('composer_action', '');
+set('composer_options', '');
+
+host('{{ $serverStaging }}')
+    ->stage('staging')
+    ->set('branch', 'develop')
+    ->user('{{ $userStaging }}')
+    ->set('deploy_path', '{{ $pathStaging }}');
+
+// Tasks
+task('deploy:create-shared-dirs', function () {
+    $folders = [
+        'cache',
+        'img',
+        'log',
+        'download',
+        'upload',
+        'translations',
+        'config/themes',
+        'mails',
+        'app/Resources/translations',
+    ];
+
+    foreach (glob(__DIR__ . '/../modules/*', GLOB_ONLYDIR) as $folder) {
+        $folders[] = 'themes/' . _CURRENT_THEME_ . '/' . str_replace(__DIR__ . '/../', '', $folder) . '/translations';
+    }
+
+    foreach (glob(__DIR__ . '/../themes/*/modules/*', GLOB_ONLYDIR) as $folder) {
+        $folders[] = str_replace(__DIR__ . '/../', '', $folder) . '/translations';
+    }
+
+    foreach (get('shared_dirs') as $pattern) {
+        foreach (glob($pattern, GLOB_ONLYDIR) as $folder) {
+            $folders[] = str_replace(__DIR__ . '/../', '', $folder);
+        }
+    }
+
+    set('shared_dirs', $folders);
+});
+
+
+desc('Deploy your project');
+task('deploy', [
+    'deploy:create-shared-dirs',
+    'deploy:info',
+    'deploy:prepare',
+    'deploy:lock',
+    'deploy:release',
+    'deploy:update_code',
+    'deploy:shared',
+    'deploy:writable',
+    'deploy:clear_paths',
+    'deploy:symlink',
+    'deploy:unlock',
+    'cleanup',
+    'success'
+]);
+
+// [Optional] If deploy fails automatically unlock.
+after('deploy:failed', 'deploy:unlock');
