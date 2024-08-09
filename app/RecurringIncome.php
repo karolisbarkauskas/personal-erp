@@ -56,16 +56,16 @@ class RecurringIncome extends Model
             'vat_size' => $this->vat_size,
             'company_id' => $this->company_id,
             'invoice_no' => Income::getInvoiceNumber($this->company->invoice),
-            'short_service' => $this->service_line . " " . now()->addMonths($this->period)->format('Y-m-d'),
+            'short_service' => $this->service_line,
         ]);
 
         $invoice->serviceValues()->create([
             'amount' => $this->amount,
             'service_id' => $this->service_id
         ]);
-        $this->update([
-            'next_invoice_date' => now()->addMonths($this->period)
-        ]);
+//        $this->update([
+//            'next_invoice_date' => now()->addMonths($this->period)
+//        ]);
     }
 
 }

@@ -127,7 +127,7 @@
         }
 
         .total_amount {
-            color: #2E3192;
+            color: #000000FF;
             font-size: 16px;
             font-weight: bold;
         }
@@ -142,7 +142,7 @@
         }
 
         .blue-header {
-            color: #2E3192;
+            color: #000000;
             font-size: 18px !important;
             margin-bottom: 5px !important;
             margin-top: 0 !important;
@@ -154,8 +154,9 @@
 
         .vat-invoice-title {
             font-size: 16px !important;
-            color: #283592;
+            color: #000000FF;
             margin-bottom: 5px !important;
+            margin-top: 0;
         }
 
 
@@ -165,7 +166,7 @@
 
         .vat-invoice-date {
             font-size: 13px !important;
-            color: #2E3192;
+            color: #000000FF;
             margin-top: 0 !important;
         }
 
@@ -182,17 +183,17 @@
     <tr>
         <td class="border-0 pl-0 seller-info" width="50%">
             <h3 class="blue-header"><strong>{{ $invoice->seller->name }}</strong></h3>
-            <strong>{{ __('invoices.code') }}:</strong> {{ $invoice->seller->code }} <br>
+            <strong>A.k.:</strong> {{ $invoice->seller->code }} <br>
+            <strong>Individualios veiklos pažymos nr.:</strong> 588648 <br>
             @if($invoice->seller->vat)
                 <strong>{{ __('invoices.vat') }}</strong> {{ $invoice->seller->vat }} <br>
             @endif
-            {{ $invoice->seller->address }} <br>
+            <strong>Adresas:</strong> {{ $invoice->seller->address }} <br>
             @foreach($invoice->seller->custom_fields as $key => $value)
                 <strong>{{ ucfirst($key) }}</strong>: {{ $value }} <br>
             @endforeach
         </td>
-        <td class="border-0 pl-0 text-center">
-            <img src="{{ $invoice->getLogo() }}" alt="logo" height="55">
+        <td class="border-0 pl-0 seller-info text-center">
             <div class="vat-invoice-title">
                 <strong>{{ $invoice->name }}: {{ $invoice->getSerialNumber() }}</strong>
             </div>
@@ -208,7 +209,7 @@
 <table class="table" style="margin: 50px 0">
     <thead>
     <tr>
-        <th class="border-0 pl-0 party-header" width="51%">
+        <th class="border-0 pl-0 party-header" width="55%">
             {{ __('invoices.buyer') }}
         </th>
         <th class="border-0 pl-0 party-header text-center">

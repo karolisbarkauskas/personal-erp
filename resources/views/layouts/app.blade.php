@@ -95,54 +95,12 @@
                         <a href="{{ route('clients.index') }}" class="nav-link">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('employees.index') }}" class="nav-link">Employees</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('income.plans') }}" class="nav-link text-success">
-                            Planned income
-                        </a>
-                    </li>
-                    <li class="nav-item with-sub">
-                        <a href="" class="nav-link text-info">
-                            Tasks planner
-                        </a>
-                        <ul class="navbar-menu-sub">
-                            <li class="nav-sub-item">
-                                <a href="{{ route('tasks.index') }}" class="nav-sub-link">
-                                    Planner
-                                </a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a href="{{ route('tasks.open') }}" class="nav-sub-link">
-                                    All opened tasks
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('payments.index') }}" class="nav-link text-danger">Payments</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('expenses.index') }}" class="nav-link text-danger">
                             Expenses list
                         </a>
-                    </li>
-                    <li class="nav-item with-sub">
-                        <a href="" class="nav-link">
-                            Reports
-                        </a>
-                        <ul class="navbar-menu-sub">
-                            <li class="nav-sub-item">
-                                <a href="{{ route('report.main') }}" class="nav-sub-link">
-                                    Efficiency and Score
-                                </a>
-                            </li>
-                            <li class="nav-sub-item">
-                                <a href="{{ route('report.demo') }}" class="nav-sub-link">
-                                    Targets calculator
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 @endif
 
